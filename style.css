@@ -269,3 +269,9 @@ body.modal-open { overflow: hidden; }
 }
 @media (prefers-reduced-motion: reduce) { .shop-card, .shop-card:hover, .shop-card-media img, .shop-card:hover .shop-card-media img { transform: none; } }
 @media (min-width: 980px) { .shop-card-title { font-size: 1.65rem; } .shop-card-body { padding: 1.3rem 1.3rem 1.2rem; } }
+
+/* popup-skip 2026-10-20 */
+.modal-card:focus { outline: none; }
+.modal-skip-top { position: absolute; top: .9rem; left: 1rem; padding: .45rem .3rem; font-size: .9rem; font-weight: 600; color: var(--color-muted); text-decoration: underline; text-underline-offset: .2em; z-index: 1; }
+.modal-skip-top:hover, .modal-skip-top:focus-visible { color: var(--color-ink); }
+.shop-modal .modal-card { padding-top: 3.4rem; }

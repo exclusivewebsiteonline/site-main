@@ -32,7 +32,17 @@
 .shop-cat-title span { display: block; font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; opacity: .6; margin-bottom: .15rem; }
 @media (min-width: 640px) { .shop-card--featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.3fr 1fr; } .shop-card--featured .shop-card-media { aspect-ratio: auto; min-height: 100%; } .shop-card--featured .shop-card-body { padding: 2rem 2.2rem; justify-content: center; } .shop-card--featured .shop-card-title { font-size: 1.8rem; } .shop-card--featured .shop-card-line { font-size: 1.08rem; } }
 .shop-card-badge { align-self: flex-start; margin: 0 0 .7rem; padding: .25rem .75rem; border-radius: 999px; background: #b4623e; color: #fff; font-size: .76rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.shop-cat-count { font-size: .6em; font-weight: 600; opacity: .55; }
+.shop-more { margin-top: clamp(1rem, .8rem + 1vw, 1.6rem); }
+.shop-more-wrap { display: none; justify-content: center; margin-top: 1.2rem; }
+.js .shop-more:not(.is-open) { display: none; }
+.js .shop-more-wrap { display: flex; }
+.shop-more-btn { min-height: 44px; padding: .6rem 1.4rem; border: 1px solid var(--line); border-radius: 999px; background: var(--color-surface); font-weight: 700; cursor: pointer; color: inherit; }
+.shop-more-btn:hover { box-shadow: var(--shadow); }
+.shop-more-btn::after { content: " \25BE"; }
+.shop-more-btn[aria-expanded="true"]::after { content: " \25B4"; }
 </style>
+<script>document.documentElement.classList.add('js');document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.shop-more-btn');if(!b)return;var l=document.getElementById(b.getAttribute('aria-controls')),o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(o));l.classList.toggle('is-open',o);b.textContent=o?b.dataset.less:b.dataset.more;if(!o){var s=b.closest('.shop-cat');if(s.getBoundingClientRect().top<0)s.scrollIntoView();}});</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -74,7 +84,7 @@
         <li><a href="#home">Home, Wood &amp; Gifts</a></li>
       </ul>
       <section class="shop-cat" id="jewelry" aria-labelledby="cat-jewelry">
-        <h2 class="shop-cat-title" id="cat-jewelry"><span>9 shops</span>Jewelry &amp; Beads</h2>
+        <h2 class="shop-cat-title" id="cat-jewelry">Jewelry &amp; Beads <small class="shop-cat-count">(9)</small></h2>
         <ul class="shop-grid" role="list">
       <li class="shop-card shop-card--featured">
         <div class="shop-card-media">
@@ -93,6 +103,8 @@
           <p class="shop-card-meta"><span class="shop-card-url">brooklynrosebeads.exclusivewebsite.online</span> <a href="https://www.instagram.com/brooklynrosebeads/">@brooklynrosebeads</a></p>
         </div>
       </li>
+        </ul>
+        <ul class="shop-grid shop-more" id="more-jewelry" role="list">
       <li class="shop-card">
         <div class="shop-card-media">
           <img src="img/doxievibe-800.webp" srcset="img/doxievibe-480.webp 480w, img/doxievibe-800.webp 800w" sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 979px) calc(50vw - 2rem), 360px" width="800" height="600" alt="Handmade clay earrings in black, sage and coral on display cards, from Doxie Vibe" decoding="async">
@@ -222,9 +234,10 @@
         </div>
       </li>
         </ul>
+        <div class="shop-more-wrap"><button type="button" class="btn shop-more-btn" aria-expanded="false" aria-controls="more-jewelry" data-more="See more shops (8)" data-less="Show fewer">See more shops (8)</button></div>
       </section>
       <section class="shop-cat" id="art" aria-labelledby="cat-art">
-        <h2 class="shop-cat-title" id="cat-art"><span>4 shops</span>Art &amp; Prints</h2>
+        <h2 class="shop-cat-title" id="cat-art">Art &amp; Prints <small class="shop-cat-count">(4)</small></h2>
         <ul class="shop-grid" role="list">
       <li class="shop-card shop-card--featured">
         <div class="shop-card-media">
@@ -243,6 +256,8 @@
           <p class="shop-card-meta"><span class="shop-card-url">tjitskekamphuis.exclusivewebsite.online</span> <a href="https://www.instagram.com/tjitskekamphuis/">@tjitskekamphuis</a></p>
         </div>
       </li>
+        </ul>
+        <ul class="shop-grid shop-more" id="more-art" role="list">
       <li class="shop-card">
         <div class="shop-card-media">
           <img src="img/moonmothandtorch-800.webp" srcset="img/moonmothandtorch-480.webp 480w, img/moonmothandtorch-800.webp 800w" sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 979px) calc(50vw - 2rem), 360px" width="800" height="600" alt="A wood-burned witch&#x27;s cat sitting among pumpkins under a crescent moon, from Moon, Moth and Torch" loading="lazy" decoding="async">
@@ -292,9 +307,10 @@
         </div>
       </li>
         </ul>
+        <div class="shop-more-wrap"><button type="button" class="btn shop-more-btn" aria-expanded="false" aria-controls="more-art" data-more="See more shops (3)" data-less="Show fewer">See more shops (3)</button></div>
       </section>
       <section class="shop-cat" id="pottery" aria-labelledby="cat-pottery">
-        <h2 class="shop-cat-title" id="cat-pottery"><span>4 shops</span>Pottery &amp; Ceramics</h2>
+        <h2 class="shop-cat-title" id="cat-pottery">Pottery &amp; Ceramics <small class="shop-cat-count">(4)</small></h2>
         <ul class="shop-grid" role="list">
       <li class="shop-card shop-card--featured">
         <div class="shop-card-media">
@@ -313,6 +329,8 @@
           <p class="shop-card-meta"><span class="shop-card-url">eversartshop.exclusivewebsite.online</span> <a href="https://www.instagram.com/eversartshop/">@eversartshop</a></p>
         </div>
       </li>
+        </ul>
+        <ul class="shop-grid shop-more" id="more-pottery" role="list">
       <li class="shop-card">
         <div class="shop-card-media">
           <img src="img/hannahberridge-800.webp" srcset="img/hannahberridge-480.webp 480w, img/hannahberridge-800.webp 800w" sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 979px) calc(50vw - 2rem), 360px" width="800" height="600" alt="Hand-painted mug with blue forget-me-not flowers, from Hannah Berridge" loading="lazy" decoding="async">
@@ -362,9 +380,10 @@
         </div>
       </li>
         </ul>
+        <div class="shop-more-wrap"><button type="button" class="btn shop-more-btn" aria-expanded="false" aria-controls="more-pottery" data-more="See more shops (3)" data-less="Show fewer">See more shops (3)</button></div>
       </section>
       <section class="shop-cat" id="textiles" aria-labelledby="cat-textiles">
-        <h2 class="shop-cat-title" id="cat-textiles"><span>8 shops</span>Textiles, Sewing &amp; Embroidery</h2>
+        <h2 class="shop-cat-title" id="cat-textiles">Textiles, Sewing &amp; Embroidery <small class="shop-cat-count">(8)</small></h2>
         <ul class="shop-grid" role="list">
       <li class="shop-card shop-card--featured">
         <div class="shop-card-media">
@@ -383,6 +402,8 @@
           <p class="shop-card-meta"><span class="shop-card-url">medullatextiles.exclusivewebsite.online</span> <a href="https://www.instagram.com/medulla.textiles/">@medulla.textiles</a></p>
         </div>
       </li>
+        </ul>
+        <ul class="shop-grid shop-more" id="more-textiles" role="list">
       <li class="shop-card">
         <div class="shop-card-media">
           <img src="img/bloomingday-800.webp" srcset="img/bloomingday-480.webp 480w, img/bloomingday-800.webp 800w" sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 979px) calc(50vw - 2rem), 360px" width="800" height="600" alt="Hands holding an embroidered water-lily painting in a round wooden frame, among pink blossoms, from Blooming Day" loading="lazy" decoding="async">
@@ -496,9 +517,10 @@
         </div>
       </li>
         </ul>
+        <div class="shop-more-wrap"><button type="button" class="btn shop-more-btn" aria-expanded="false" aria-controls="more-textiles" data-more="See more shops (7)" data-less="Show fewer">See more shops (7)</button></div>
       </section>
       <section class="shop-cat" id="felted" aria-labelledby="cat-felted">
-        <h2 class="shop-cat-title" id="cat-felted"><span>4 shops</span>Felted Animals, Toys &amp; Pets</h2>
+        <h2 class="shop-cat-title" id="cat-felted">Felted Animals, Toys &amp; Pets <small class="shop-cat-count">(4)</small></h2>
         <ul class="shop-grid" role="list">
       <li class="shop-card shop-card--featured">
         <div class="shop-card-media">
@@ -517,6 +539,8 @@
           <p class="shop-card-meta"><span class="shop-card-url">ffinlaysonart.exclusivewebsite.online</span> <a href="https://www.instagram.com/ffinlaysonart/">@ffinlaysonart</a></p>
         </div>
       </li>
+        </ul>
+        <ul class="shop-grid shop-more" id="more-felted" role="list">
       <li class="shop-card">
         <div class="shop-card-media">
           <img src="img/therockingfelter-800.webp" srcset="img/therockingfelter-480.webp 480w, img/therockingfelter-800.webp 800w" sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 979px) calc(50vw - 2rem), 360px" width="800" height="600" alt="A tiny needle-felted Highland cow holding a red heart, sitting in a teaspoon, from The Rocking Felter" loading="lazy" decoding="async">
@@ -566,9 +590,10 @@
         </div>
       </li>
         </ul>
+        <div class="shop-more-wrap"><button type="button" class="btn shop-more-btn" aria-expanded="false" aria-controls="more-felted" data-more="See more shops (3)" data-less="Show fewer">See more shops (3)</button></div>
       </section>
       <section class="shop-cat" id="home" aria-labelledby="cat-home">
-        <h2 class="shop-cat-title" id="cat-home"><span>4 shops</span>Home, Wood &amp; Gifts</h2>
+        <h2 class="shop-cat-title" id="cat-home">Home, Wood &amp; Gifts <small class="shop-cat-count">(4)</small></h2>
         <ul class="shop-grid" role="list">
       <li class="shop-card shop-card--featured">
         <div class="shop-card-media">
@@ -587,6 +612,8 @@
           <p class="shop-card-meta"><span class="shop-card-url">murayamawoodworks.exclusivewebsite.online</span> <a href="https://www.instagram.com/kbartlez/">@kbartlez</a></p>
         </div>
       </li>
+        </ul>
+        <ul class="shop-grid shop-more" id="more-home" role="list">
       <li class="shop-card">
         <div class="shop-card-media">
           <img src="img/velimiradesigns-800.webp" srcset="img/velimiradesigns-480.webp 480w, img/velimiradesigns-800.webp 800w" sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 979px) calc(50vw - 2rem), 360px" width="800" height="600" alt="Handmade dark red leather journal with a crescent moon cover and a metal clasp, from Velimira Designs" loading="lazy" decoding="async">
@@ -636,6 +663,7 @@
         </div>
       </li>
         </ul>
+        <div class="shop-more-wrap"><button type="button" class="btn shop-more-btn" aria-expanded="false" aria-controls="more-home" data-more="See more shops (3)" data-less="Show fewer">See more shops (3)</button></div>
       </section>
     </div>
   </section>

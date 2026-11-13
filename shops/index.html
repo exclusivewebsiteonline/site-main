@@ -56,6 +56,7 @@
 .shop-more-btn[aria-expanded="true"]::after { content: " \25B4"; }
 </style>
 <script>document.documentElement.classList.add('js');document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.shop-more-btn');if(!b)return;var l=document.getElementById(b.getAttribute('aria-controls')),o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(o));l.classList.toggle('is-open',o);b.textContent=o?b.dataset.less:b.dataset.more;if(!o){var s=b.closest('.shop-cat');if(s.getBoundingClientRect().top<0)s.scrollIntoView();}});</script>
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"2cf0f167452511f308bb941673565e3a"})});</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
